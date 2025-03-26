@@ -21,10 +21,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v3  # or use another version
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        node-version: '14'
     - run: npm i
     - run: npm run build --if-present
